@@ -1,7 +1,2 @@
-name = input("What is your name? ")
-msg = "Hello " + name + "!"
-print (msg)
-
-#Testing git
-
-sorted
+a = "test"
+print(a)
