@@ -1,3 +1,4 @@
-for x in range(4):
-    for y in range(3):
-        print(f'({x}, {y})')
+print (1+2)
+a=1
+b=2
+print(a+b)
