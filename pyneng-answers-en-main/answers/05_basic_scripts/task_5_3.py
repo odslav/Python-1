@@ -72,3 +72,5 @@ vlans = input("Enter VLAN(s) number: ")
 
 print(f"interface {interface}")
 print("\n".join(template[mode]).format(vlans))
+
+a = 22

@@ -1,19 +1,52 @@
-import xml.etree.cElementTree as ET
+from pprint import pprint
 
-#Get the XML file data
-stream = open ('sample.xml','r')
+#Example with list
+result = [
+    ["FastEthernet0/0", "15.0.15.1"],
+    ["FastEthernet0/0", "15.0.15.1"],
+    ["FastEthernet0/0", "15.0.15.1"],
+]
 
-#Parse the data into an ElementTree object
-xml = ET.parse(stream)
+result_list = []
 
-#Get the 'root' Element object from the ElementTree
-root = xml.getroot()
+with open("sh_ip_int_br.txt", "r") as f:
+    for line in f:
+        line_list = line.split()
+        
+        #if line_list: # same as - if len(line_list !=0)
+        #    str_index_0 = line_list[0]
+        #    if str_index_0[-1].isdigit():
+        #        intf_ip_list = (line_list[0:2])
+        #        result_list.append(intf_ip_list)
+        
+        #The above example is the same but longer
+        if line_list and line_list[0][-1].isdigit():
+            intf_ip_list = (line_list[0:2])
+            result_list.append(intf_ip_list)
 
-#Iterate through each child of the root Element
-for e in root:
-    #Print the stringfield version of the element
-    print(ET.tostring(e))
-    print("")
+pprint(result_list)
 
-    #Pring the 'Id' attribuete of the Element object
-    print(e.get("Id"))
+##################################################################
+
+#Example with dictionary
+result = {
+    "FastEthernet0/0": "15.0.15.1",
+    "FastEthernet0/0": "15.0.15.1",
+    "FastEthernet0/0": "15.0.15.1",
+}
+
+result_dict = {}
+
+with open("sh_ip_int_br.txt", "r") as f:
+    for line in f:
+        line_list = line.split()
+        if line_list and line_list[0][-1].isdigit():
+            intf, ip = line_list[:2]
+            result_dict[intf] = ip
+
+pprint(result_dict)
+
+
+
+
+

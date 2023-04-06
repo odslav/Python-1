@@ -15,3 +15,14 @@ this stage it is difficult otherwise test the result.
 """
 
 nat = "ip nat inside source list ACL interface FastEthernet0/1 overload"
+
+#answer
+nat1 = nat.replace("FastEthernet", "GigabitEthernet")
+print(nat1)
+
+#my 
+nat = nat.split()
+print(nat.index("FastEthernet0/1"))
+nat[7] = "GigabitEthernet0/1"
+stdout = " ".join(nat)
+print(stdout)

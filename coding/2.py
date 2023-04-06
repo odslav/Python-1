@@ -1,14 +1,9 @@
-class Circle:
-    radius = 0
+path = "E:/Git/Python-1/coding/"
+files = ["sh_cdp_n_r1.txt", "sh_cdp_n_r2.txt", "sh_cdp_n_r3.txt", "sh_cdp_n_sw1.txt"]
 
-    def __init__(self,r):
-        self.radius = r
-
-    def circumfrence(self):
-        return 3.141 * 2 * self.radius
-
-circleA = Circle(15)
-circleB = Circle(19.5)
-
-print("Circle A circumfrence: " + circleA.circumfrence())
-print("Circle B circumfrence: " + circleB.circumfrence()) 
+for file in files:
+    with open(f"{path}{file}", "r") as f:
+        print(f"{path}{file}")
+        for line in f:
+            if "Eth" in line:
+                print(line.rstrip())

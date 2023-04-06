@@ -16,5 +16,34 @@ correct output without getting results from initial data using Python.
 This does not mean that the task was done correctly, it is just that at
 this stage it is difficult otherwise test the result.
 """
-
+#MY
 ospf_route = "      10.0.24.0/24 [110/41] via 10.0.13.3, 3d18h, FastEthernet0/0"
+ospf_route = ospf_route.replace("[", "").replace("]", "").replace(",", "")
+ospf = ospf_route.split()
+
+ospf_template = (
+    "Prefix                 {}\n"
+    "AD/Metric              {}\n"
+    "Next-Hop               {}\n"
+    "Last update            {}\n"
+    "Outbound Interface     {}\n"
+)
+
+output = ospf_template.format(ospf[0], ospf[1], ospf[3], ospf[4], ospf[5])
+print(output)
+
+#CORRECT
+ospf_route = "      10.0.24.0/24 [110/41] via 10.0.13.3, 3d18h, FastEthernet0/0"
+
+output = "\n{:25} {}" * 5
+
+route = ospf_route.replace(",", " ").replace("[", "").replace("]", "")
+route = route.split()
+
+print(output.format(
+        "Prefix", route[0],
+        "AD/Metric", route[1],
+        "Next-Hop", route[3],
+        "Last update", route[4],
+        "Outbound Interface", route[5],
+))

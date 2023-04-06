@@ -15,4 +15,17 @@ This does not mean that the task was done correctly, it is just that at
 this stage it is difficult otherwise test the result.
 """
 
+#MY
 mac = "AAAA:BBBB:CCCC"
+
+mac = mac.replace(":", "")
+mac = int(mac, 16)
+mac = bin(mac)
+mac = mac.replace("0b", "")
+print(mac)
+
+#CORRECT
+mac = "AAAA:BBBB:CCCC"
+
+bin_mac = "{:b}".format(int(mac.replace(":", ""), 16))
+print(bin_mac)

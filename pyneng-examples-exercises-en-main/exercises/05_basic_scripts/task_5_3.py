@@ -49,9 +49,15 @@ switchport mode trunk
 switchport trunk allowed vlan 2,3,4,5
 """
 
+
+
+intf = input("Enter interface type and number:")
+intf_mode = input("interface mode (access/trunk):")
+intf_vlans = input("Enter VLAN(s) number:")
+
 access_template = [
     "switchport mode access",
-    "switchport access vlan {}",
+    "switchport access vlan {intf_vlans}",
     "switchport nonegotiate",
     "spanning-tree portfast",
     "spanning-tree bpduguard enable",
@@ -60,5 +66,10 @@ access_template = [
 trunk_template = [
     "switchport trunk encapsulation dot1q",
     "switchport mode trunk",
-    "switchport trunk allowed vlan {}",
+    "switchport trunk allowed vlan {intf_vlans}",
 ]
+
+print(access_template)
+
+
+

@@ -17,3 +17,28 @@ even if several points above are not met.
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
+
+ip = input("Enter IP: ")
+octets = ip.split(".")
+
+increment = 0
+
+if len(octets) == 4 and ip.count(".") == 3:
+    for each_octet in octets:
+        if each_octet.isnumeric():
+            if int(each_octet) in range(256):
+                increment += 1
+
+if increment == 4:
+    if int(octets[0]) in range(224):
+        print("unicast")
+    elif int(octets[0]) in range(224, 240):
+        print("mulicast")
+    elif ip == "255.255.255.255":
+        print("local broadcast")
+    elif ip == "0.0.0.0":
+        print("unassigned")
+    else:
+        print("unused")
+else:
+    print("Invalid IP address")

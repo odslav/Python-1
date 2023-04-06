@@ -26,3 +26,12 @@ this stage it is difficult otherwise test the result.
 """
 
 ip = "192.168.3.1"
+
+ip = ip.split(".")
+template = "{0:<8} {1:<8} {2:<8} {3:<8}\n{0:08b} {1:08b} {2:08b} {3:08b}"
+binary = template.format(int(ip[0]), int(ip[1]), int(ip[2]), int(ip[3]))
+
+print(binary)
+
+
+

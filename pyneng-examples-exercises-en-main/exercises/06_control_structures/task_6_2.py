@@ -12,3 +12,22 @@ Depending on the type of address (described below), print to the stdout:
 
 Restriction: All tasks must be done using the topics covered in this and previous chapters.
 """
+
+ip = input("Enter IP: ")
+octets = ip.split(".")
+
+if int(octets[0]) in range(224):
+    print("unicast")
+elif int(octets[0]) in range(224, 240):
+    print("mulicast")
+elif ip == "255.255.255.255":
+    print("local broadcast")
+elif ip == "0.0.0.0":
+    print("unassigned")
+else:
+    print("unused")
+
+
+
+
+

@@ -1,12 +1,6 @@
-def test():
-    print('Hello World')
+from posixpath import split
 
 
-print(1+2)
-a = 1
-b = 2
-print(a+b)
-n = '''
-Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing Testing 
-Testing Testing Testing Testing Testing Testing Testing Testing Testing
-'''
+a = ["1", "2", "3", "3"]
+a = set(a)
+print(a)
